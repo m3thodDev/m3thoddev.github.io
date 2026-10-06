@@ -509,8 +509,6 @@ blockquote cite { font-style: normal; color: #fff; }
           "float prog=clamp(uScroll/1600.0,0.0,1.0);",
           "float pocket=smoothstep(0.70,0.05,suv.x)*smoothstep(0.58,0.0,suv.y);",
           "pocket*=1.0-prog;color*=mix(1.0,0.16,pocket);",
-          "float spark=step(0.9988,hash(floor(gl_FragCoord.xy*0.45)+floor(uTime*5.0)));",
-          "color+=spark*vec3(1.0)*ink;",
           "gl_FragColor=vec4(color,1.0);}"
         ].join("");
         var fallback = "precision mediump float;uniform vec2 uRes;uniform float uTime;uniform vec2 uMouse;uniform float uScroll;void main(){vec2 p=(gl_FragCoord.xy-0.5*uRes)/uRes.y;float t=uTime*0.35;p+=vec2(sin(t+p.y*3.0),cos(t*0.8+p.x*2.0))*0.18;p.y+=uScroll*0.00038;float f=0.5+0.5*sin(p.x*6.0+t)*cos(p.y*5.0-t*0.7);vec3 col=mix(vec3(0.0,0.95,1.0),vec3(1.0,0.05,0.52),f);col=mix(col,vec3(0.62,1.0,0.05),0.5+0.5*sin(t+p.x+uMouse.x));float cells=uRes.y/92.0;vec2 gv=fract(gl_FragCoord.xy/cells)-0.5;float dots=1.0-smoothstep(0.1,0.28,length(gv));gl_FragColor=vec4(col*(0.22+dots),1.0);}";
