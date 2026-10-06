@@ -1,0 +1,13 @@
+{
+  "short_name": "M3thod",
+  "name": "M3thod Development",
+  "icons": [{
+    "src": "icon.svg",
+    "type": "image/svg+xml",
+    "sizes": "any"
+  }],
+  "start_url": "/",
+  "background_color": "#151515",
+  "theme_color": "#151515",
+  "display": "standalone"
+}
